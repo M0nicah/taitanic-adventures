@@ -1,0 +1,16 @@
+{% block content %}
+  <h1>Travel Packages</h1>
+  <ul>
+    {% for package in packages %}
+      <li>
+        <h2>{{ package.name }}</h2>
+        <p>Duration: {{ package.duration }}</p>
+        <p>Price per Person: {{ package.price_per_person }}</p>
+        <!-- If there's an image, display it -->
+        {% if package.image %}
+          <img src="{{ package.image.url }}" alt="Image for {{ package.name }}" style="max-height: 200px;">
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
